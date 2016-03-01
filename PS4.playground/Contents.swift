@@ -1,24 +1,26 @@
 /*:
 # CS 190 Problem Set #4&mdash;Transforming Arrays
 
-Course Home Page: http://physics.stmarys-ca.edu/classes/CS190_S16/index.html.
+[CS 190 Home Page]( http://physics.stmarys-ca.edu/classes/CS190_S16/index.html )
 
 Due: Thursday, March 3rd, 2016.
 
+## Reading for this Problem Set
+
+* In the [Intermediate Swift GitHub Repository]( https://github.com/brianhill/intermediate-swift ) study the two playgrounds numbered 4_1 and 4_2.
+
+* The above two playgrounds follow _and_ _simplify_ _to_ _an_ _intermediate_ _level_, Sections 4.1 and 4.2 in the "Collections" Chapter of [Advanced Swift]( https://www.objc.io/books/advanced-swift/ ), by Chris Eidhof and Airspeed Velocity. Although the above two playground stand on their own, they could be used with Eidhof and Velocity in hand to take your understanding to an advanced level.
+
 ## Directions for this Problem Set
 
-* In the [GitHub Repository](https://github.com/brianhill/intermediate-swift) study the two playgrounds numbered 4_1 and 4_2.
+* Fork this repo and make a local copy.
+* Open this playground in Xcode. If necessary, adjust Xcode so that it shows the output of the unit tests.
+* Follow the directions in Parts 1, 2 and 3.
+* When the unit tests pass, commit your changes to your local repo and then push them to your fork.
 
-* The above two playgrounds follows _and_ _simplify_ _to_ _an_ _intermediate_ _level_, Sections 4.1 and 4.2 the "Collections" Chapter of [Advanced Swift](https://www.objc.io/books/advanced-swift/), by Chris Eidhof and Airspeed Velocity. Although those two playground stand on their own, they could be used with that Eidhof and Velocity in hand to take your understanding to an advanced level.
+## Part 1 (2 pts): Using Closures
 
-* Below you will find directions for implementing some functions.
-
-*/
-
-/*:
-# Problem Set #4)
-
-Part 1 (2 pts) Implement raiseArrayToPower using anyPower. It's a one-liner once you figure out how to use anyPower. When you have it implemented it right, the two Part 1 unit tests will pass.
+Implement raiseArrayToPower using anyPower. It's a one-liner once you figure out how to use anyPower. When you have it implemented it right, the two Part 1 unit tests will pass.
 */
 
 let oneTwoThree = [1, 2, 3]
@@ -39,7 +41,9 @@ func raiseArrayToPower(n: Int, arrayOfInts: [Int]) -> [Int] {
 }
 
 /*:
-Part 2 (2 pts) Implement the following function using filter. When you have it implemented right, the two Part 2 unit tests will pass.
+## Part 2 (2 pts): Using Filter
+
+Implement the following function using filter. When you have it implemented right, the two Part 2 unit tests will pass.
 */
 
 func keepOnlyEvenValues(arrayOfInts: [Int]) -> [Int] {
@@ -47,7 +51,9 @@ func keepOnlyEvenValues(arrayOfInts: [Int]) -> [Int] {
 }
 
 /*:
-Part 3: (1 pt) Implement totalRentalHours using reduce(). When you have it implemented right, the last of the five unit tests will pass.
+## Part 3 (1 pt): Using Reduce
+
+Implement totalRentalHours using reduce(). When you have it implemented right, the last of the five unit tests will pass.
 */
 
 struct CarRental {
@@ -69,7 +75,7 @@ import XCTest
 
 class CollectionsTestSuite: XCTestCase {
     
-    // part one unit tests
+    // Part 1 unit tests
     func testPart1Count() {
         let oneThirtytwoTwofortythree = raiseArrayToPower(5, arrayOfInts: oneTwoThree)
         XCTAssertEqual(oneThirtytwoTwofortythree.count, oneTwoThree.count, "Oh-oh.")
@@ -80,7 +86,7 @@ class CollectionsTestSuite: XCTestCase {
         XCTAssertEqual(243, oneThirtytwoTwofortythree.last, "Drat.")
     }
     
-    // part two unit tests
+    // Part 2 unit tests
     func testPart2Count() {
         let evenValues = keepOnlyEvenValues(oneTwoThree)
         XCTAssertEqual(1, evenValues.count, "Rats.")
@@ -91,14 +97,14 @@ class CollectionsTestSuite: XCTestCase {
         XCTAssertEqual(2, evenValues.last, "Ratz.")
     }
     
-    // part three unit test
+    // Part 3 unit test
     func testPart3() {
         XCTAssertEqual(194.5, totalRentalHours(thisMonthsRentals), "Darn.")
     }
 }
 
 /*:
-The following arcana is necessary to support the execution of unit tests in a playground, but isn't documented in [Apple's XCTest Library](https://github.com/apple/swift-corelibs-xctest). I gratefully acknowledge Stuart Sharpe for sharing it in his blog post, [TDD in Swift Playgrounds](http://initwithstyle.net/2015/11/tdd-in-swift-playgrounds/).
+The following arcana is necessary to support the execution of unit tests in a playground, but isn't documented in [Apple's XCTest Library]( https://github.com/apple/swift-corelibs-xctest ). I gratefully acknowledge Stuart Sharpe for sharing it in his blog post, [TDD in Swift Playgrounds]( http://initwithstyle.net/2015/11/tdd-in-swift-playgrounds/ ).
 */
 
 class PlaygroundTestObserver : NSObject, XCTestObservation {
