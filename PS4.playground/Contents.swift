@@ -37,7 +37,7 @@ func anyPower(n: Int) -> (Int->Int) {
 }
 
 func raiseArrayToPower(n: Int, arrayOfInts: [Int]) -> [Int] {
-    return [1, 5] // a meaningless hard-coded implementation for you to replace with an actual implementation
+    return arrayOfInts.map( anyPower(n) )
 }
 
 /*:
@@ -47,7 +47,7 @@ Implement the following function using filter. When you have it implemented righ
 */
 
 func keepOnlyEvenValues(arrayOfInts: [Int]) -> [Int] {
-    return [1, 5] // a meaningless hard-coded implementation for you to replace with an actual implementation
+    return arrayOfInts.filter { value in value % 2 == 0 }
 }
 
 /*:
@@ -67,9 +67,13 @@ let thisMonthsRentals = [
     CarRental(price: 15.25, hours: 2.5)
 ]
 
+var total = 0.0
+
 func totalRentalHours(rentals: [CarRental]) -> Double {
-    return 5.0 // a meaningless hard-coded implementation for you to replace with an actual implementation
+    return rentals.reduce( 0 ) {total, rental in total + rental.hours}
 }
+
+totalRentalHours( thisMonthsRentals ) //My own test
 
 import XCTest
 
@@ -100,6 +104,7 @@ class CollectionsTestSuite: XCTestCase {
     // Part 3 unit test
     func testPart3() {
         XCTAssertEqual(194.5, totalRentalHours(thisMonthsRentals), "Darn.")
+        //No result pops up on the right for me here, but totalRentalHours(thisMonthsRentals) appears to be summing to 194.5 when I write it separately
     }
 }
 
